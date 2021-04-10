@@ -1,0 +1,77 @@
+
+<html>
+  <head>
+    <title>Case Study 1</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Stick&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/ml5@0.4.3/dist/ml5.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/webcamjs/1.0.26/webcam.js"></script>
+    
+    <link rel="stylesheet" type="text/css" href="style.css">
+  </head>
+
+  <body>
+    <center>
+      <div class="col-xs-12 header">
+        <h1>Mobilenet and microsoft azure</h1>
+      </div>
+      <br>
+      <br>
+      <div class="col-xs-12 col-sm-6 maindiv">
+        <img class="testimage" src="https://cdn.vox-cdn.com/thumbor/WJjQowuu3GGDFa3tksAmONjuxfk=/3098x0:8008x3373/1200x800/filters:focal(5244x992:6524x2272)/cdn.vox-cdn.com/uploads/chorus_image/image/63905677/ryzen_3000_cpus_lede_2.10.jpg">
+        <h3>Output on microsoft azure:<span id="azure1">sign</span></h3>
+        <h3>Output on mobile net:<span id="net1">sign</span></h3>
+        <h3>Output on wolfram language:<span id="wol1">harmonium</span></h3>
+      </div>
+      <br>
+      <div class="col-xs-12 col-sm-6 maindiv">
+        <img class="testimage" src="https://cdn.elearningindustry.com/wp-content/uploads/2016/05/top-10-books-every-college-student-read-1024x640.jpeg">
+        <h3>Output on microsoft azure:<span id="azure2">Books</span></h3>
+        <h3>Output on mobile net:<span id="net2">Stacked books</span></h3>
+        <h3>Output on wolfram language:<span id="wol2">Books</span></h3>
+      </div>
+      <br>
+      <div class="col-xs-12 col-sm-6 maindiv">
+        <img class="testimage" src="data:image/jpeg;base64,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">
+        <h3>Output on microsoft azure:<span id="azure3">grafic card</span></h3>
+        <h3>Output on mobile net:<span id="net3">grafic card</span></h3>
+        <h3>Output on wolfram language:<span id="wol3">alligator clip</span></h3>
+      </div>
+      <br>
+      <div class="col-xs-12 col-sm-6 maindiv">
+        <img class="testimage" src="https://cdn.dpamicrophones.com/media/images/microphones/dfacto/large/2028-vocal-microphone-1-lightgrey-bg.jpg?ext=.jpg">
+        <h3>Output on microsoft azure:<span id="azure4"></span></h3>
+        <h3>Output on mobile net:<span id="net4"></span></h3>
+        <h3>Output on wolfram language:<span id="wol4">capacitor microphone</span></h3>
+      </div>
+      <br>
+      <div class="col-xs-12 col-sm-6 maindiv">
+        <img class="testimage" src="https://www.essentiallysports.com/wp-content/uploads/fortnite-galactus-1242799-1280x0-1.jpeg">
+        <h3>Output on microsoft azure:<span id="azure5">helmet</span></h3>
+        <h3>Output on mobile net:<span id="net5">headwear</span></h3>
+        <h3>Output on wolfram language:<span id="wol1">Adam Warlock</span></h3>
+      </div>
+      <div class="col-xs-12 col-sm-6 maindiv">
+        <h3>According to my case sdudy Microsoft azure is the best in image reccignition in my case study.</h3>
+      </div>
+    </center>
+
+
+    
+<script src="main.js"></script>
+  </body>
+</html>
+
+
+
+
+
+
+
+
+ 
+
